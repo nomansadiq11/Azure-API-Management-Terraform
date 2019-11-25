@@ -1,1 +1,1 @@
-# Azure-APM-Terraform
+# Azure API Management Terraform

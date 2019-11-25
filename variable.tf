@@ -9,7 +9,7 @@ variable "tag" {
 
 
 variable "resouce_group_name" {
-  default = "ACS_DEV_Payment_Cloud_Project_incons"
+  default = "ACS_APIManagment"
 }
 
 
