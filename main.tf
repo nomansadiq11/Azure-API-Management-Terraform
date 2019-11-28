@@ -33,6 +33,47 @@ XML
 }
 
 
+resource "azurerm_storage_account" "sapffunc" {
+  name                     = "sapffunc"
+  resource_group_name      = "${azurerm_resource_group.APIManagment.name}"
+  location                 = "${var.location}"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  tags = {
+    environment = "${var.tag}"
+  }
+
+}
+
+resource "azurerm_app_service_plan" "asppffunc" {
+  name                = "asppffunc"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+
+  tags = {
+    environment = "${var.tag}"
+  }
+}
+
+resource "azurerm_function_app" "AF_OsnCloudPaymentsProxy" {
+  name                      = "afpffunc"
+  location                  = "${var.location}"
+  resource_group_name       = "${azurerm_resource_group.APIManagment.name}"
+  app_service_plan_id       = "${azurerm_app_service_plan.asppffunc.id}"
+  storage_connection_string = "${azurerm_storage_account.sapffunc.primary_connection_string}"
+
+  tags = {
+    environment = "${var.tag}"
+  }
+}
+
+
 
 resource "azurerm_api_management_api" "example" {
   name                = "test-api"
