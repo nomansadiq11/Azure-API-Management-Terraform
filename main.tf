@@ -20,16 +20,7 @@ resource "azurerm_api_management" "test" {
 
   sku_name = "Developer_1"
 
-  policy {
-    xml_content = <<XML
-    <policies>
-      <inbound />
-      <backend />
-      <outbound />
-      <on-error />
-    </policies>
-XML
-  }
+  
 }
 
 
@@ -75,17 +66,35 @@ resource "azurerm_function_app" "AF_OsnCloudPaymentsProxy" {
 
 
 
-resource "azurerm_api_management_api" "example" {
-  name                = "test-api"
-  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+resource "azurerm_api_management_api_operation" "example" {
+  operation_id        = "user-delete"
+  api_name            = "testapi"
   api_management_name = "${azurerm_api_management.test.name}"
-  revision            = "1"
-  display_name        = "Example API"
-  path                = "example"
-  protocols           = ["https"]
+  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+  display_name        = "Delete User Operation"
+  method              = "DELETE"
+  url_template        = "/users/{id}/delete"
+  description         = "This can only be done by the logged in user."
 
-  import {
-    content_format = "swagger-link-json"
-    content_value  = "http://conferenceapi.azurewebsites.net/?format=json"
+  response {
+    status_code = 200
   }
 }
+
+
+## this is import the API from Json 
+
+# resource "azurerm_api_management_api" "example" {
+#   name                = "test-api"
+#   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+#   api_management_name = "${azurerm_api_management.test.name}"
+#   revision            = "1"
+#   display_name        = "Example API"
+#   path                = "example"
+#   protocols           = ["https"]
+
+#   import {
+#     content_format = "swagger-link-json"
+#     content_value  = "http://conferenceapi.azurewebsites.net/?format=json"
+#   }
+# }
