@@ -66,20 +66,20 @@ resource "azurerm_function_app" "AF_OsnCloudPaymentsProxy" {
 
 
 
-resource "azurerm_api_management_api_operation" "example" {
-  operation_id        = "user-delete"
-  api_name            = "testapi"
-  api_management_name = "${azurerm_api_management.test.name}"
-  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
-  display_name        = "Delete User Operation"
-  method              = "DELETE"
-  url_template        = "/users/{id}/delete"
-  description         = "This can only be done by the logged in user."
+# resource "azurerm_api_management_api_operation" "example" {
+#   operation_id        = "user-delete"
+#   api_name            = "testapi"
+#   api_management_name = "${azurerm_api_management.test.name}"
+#   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+#   display_name        = "Delete User Operation"
+#   method              = "DELETE"
+#   url_template        = "/users/{id}/delete"
+#   description         = "This can only be done by the logged in user."
 
-  response {
-    status_code = 200
-  }
-}
+#   response {
+#     status_code = 200
+#   }
+# }
 
 
 ## this is import the API from Json 
