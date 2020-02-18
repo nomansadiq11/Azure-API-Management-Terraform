@@ -30,10 +30,13 @@ resource "azurerm_api_management_api" "example" {
   name                = "Payment-Facade-API"
   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
   api_management_name = "${azurerm_api_management.paymentfacadeTest.name}"
+  revision            = "1"
   display_name        = "Payment Facade API"
+  path                = "example"
   protocols           = ["https"]
 
   import {
+    content_format = "swagger-link-json"
     content_value  = "https://paypaltestapi.osn.com/swagger/v1/swagger.json"
   }
 }
