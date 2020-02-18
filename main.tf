@@ -27,11 +27,11 @@ resource "azurerm_api_management" "paymentfacadeTest" {
 ## this is import the API from Json 
 
 resource "azurerm_api_management_api" "example" {
-  name                = "test-api"
+  name                = "Payment-Facade-API"
   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
   api_management_name = "${azurerm_api_management.paymentfacadeTest.name}"
   revision            = "1"
-  display_name        = "Example API"
+  display_name        = "Payment Facade API"
   path                = "example"
   protocols           = ["https"]
 
