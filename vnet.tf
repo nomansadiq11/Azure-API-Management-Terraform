@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "PaymentSecVNet" {
 resource "azurerm_subnet" "pfvmsubnet" {
 
   name                 = "acsprod_vm_subnet"
-  resource_group_name  = "${azurerm_resource_group.PaymentFacade.name}"
+  resource_group_name  = "${azurerm_resource_group.APIManagment.name}"
   address_prefix       = "10.245.1.0/24"
   virtual_network_name = "${azurerm_virtual_network.PaymentSecVNet.name}"
  
@@ -23,7 +23,7 @@ resource "azurerm_subnet" "pfvmsubnet" {
 resource "azurerm_subnet" "pfAGsubnet" {
 
   name                 = "acsprod_AG_subnet"
-  resource_group_name  = "${azurerm_resource_group.PaymentFacade.name}"
+  resource_group_name  = "${azurerm_resource_group.APIManagment.name}"
   address_prefix       = "10.245.2.0/24"
   virtual_network_name = "${azurerm_virtual_network.PaymentSecVNet.name}"
  
