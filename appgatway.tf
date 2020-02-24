@@ -50,11 +50,8 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
   backend_address_pool {
   
     name = "API and Web"
-    }
-     backend_address_pool {
-  
-    name = "API and Web1"
-    }
+  }
+    
 
 
   backend_http_settings {
