@@ -21,8 +21,8 @@ locals {
 
 resource "azurerm_application_gateway" "PF_ApplicationGateway" {
   name                = "acsprodappgateway"
-  resource_group_name = "${azurerm_resource_group.PaymentFacade.name}"
-  location            = "${azurerm_resource_group.PaymentFacade.location}"
+  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
+  location            = "${azurerm_resource_group.APIManagment.location}"
 
   sku {
     name     = "WAF_Medium"
