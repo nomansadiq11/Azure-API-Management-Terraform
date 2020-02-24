@@ -6,15 +6,6 @@ resource "azurerm_virtual_network" "PaymentSecVNet" {
   address_space       = ["10.245.0.0/16"]
   
 
-  tags = {
-
-    Owner = "${var.Owner}"
-    CreatedDate = "${var.CreatedDate}"
-    Project = "${var.Project}"
-    Department = "${var.Department}"
-    CreatedBy = "${var.CreatedBy}"
-    
-  }
   
 }
 
