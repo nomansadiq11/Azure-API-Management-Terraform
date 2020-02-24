@@ -16,7 +16,7 @@ locals {
   frontend_ip_configuration_name = "${azurerm_virtual_network.PaymentSecVNet.name}-feip"
   http_setting_name              = "${azurerm_virtual_network.PaymentSecVNet.name}-be-htst"
   listener_name                  = "${azurerm_virtual_network.PaymentSecVNet.name}-httplstn"
-  request_routing_rule_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-rqrt"
+  request_routing_rule_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-rqrt111"
 }
 
 resource "azurerm_application_gateway" "PF_ApplicationGateway" {
