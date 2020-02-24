@@ -32,7 +32,7 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
 
   gateway_ip_configuration {
     name      = "my-gateway-ip-configuration"
-    subnet_id = "${azurerm_subnet.pfvmsubnet.id}"
+    subnet_id = "${azurerm_subnet.pfAGsubnet.id}"
   }
 
   frontend_port {
