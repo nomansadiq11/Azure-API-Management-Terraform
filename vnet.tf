@@ -2,7 +2,7 @@
 resource "azurerm_virtual_network" "PaymentSecVNet" {
   name                = "acsprodpaymentsec1"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.PaymentFacade.name}"
+  resource_group_name = "${azurerm_resource_group.APIManagment.name}"
   address_space       = ["10.245.0.0/16"]
   
 
