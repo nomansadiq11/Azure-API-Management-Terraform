@@ -3,7 +3,7 @@
 
 
 resource "azurerm_public_ip" "pf_ApplicationGateway_Pub_IP" {
-  name                = "acsprodagpip"
+  name                = "acsprodagpip1"
   location            = "${azurerm_resource_group.APIManagment.location}"
   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
   allocation_method   = "Dynamic"
@@ -11,16 +11,16 @@ resource "azurerm_public_ip" "pf_ApplicationGateway_Pub_IP" {
 
 # since these variables are re-used - a locals block makes this more maintainable
 locals {
-  backend_address_pool_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-beap"
-  frontend_port_name             = "${azurerm_virtual_network.PaymentSecVNet.name}-feport"
-  frontend_ip_configuration_name = "${azurerm_virtual_network.PaymentSecVNet.name}-feip"
-  http_setting_name              = "${azurerm_virtual_network.PaymentSecVNet.name}-be-htst"
-  listener_name                  = "${azurerm_virtual_network.PaymentSecVNet.name}-httplstn"
-  request_routing_rule_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-rqrt111"
+  backend_address_pool_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-beap1"
+  frontend_port_name             = "${azurerm_virtual_network.PaymentSecVNet.name}-feport1"
+  frontend_ip_configuration_name = "${azurerm_virtual_network.PaymentSecVNet.name}-feip1"
+  http_setting_name              = "${azurerm_virtual_network.PaymentSecVNet.name}-be-htst1"
+  listener_name                  = "${azurerm_virtual_network.PaymentSecVNet.name}-httplstn1"
+  request_routing_rule_name      = "${azurerm_virtual_network.PaymentSecVNet.name}-rqrt1"
 }
 
 resource "azurerm_application_gateway" "PF_ApplicationGateway" {
-  name                = "acsprodappgateway"
+  name                = "acsprodappgateway1"
   resource_group_name = "${azurerm_resource_group.APIManagment.name}"
   location            = "${azurerm_resource_group.APIManagment.location}"
 
@@ -49,7 +49,7 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
 
   backend_address_pool {
   
-    name = "API and Web"
+    name = "${local.backend_address_pool_name}"
   }
     
 
