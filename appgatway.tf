@@ -49,11 +49,12 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
 
   backend_address_pool {
   
-    name = "API"
+    name = "${local.backend_address_pool_name}"
     ip_address_list = ["10.245.0.67"]
   }
 
   backend_address_pool {
+  
     name = "Web"
     ip_address_list = ["10.245.0.68"]
   }
