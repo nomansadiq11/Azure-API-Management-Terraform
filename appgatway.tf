@@ -51,6 +51,11 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
   
     name = "${local.backend_address_pool_name}"
   }
+
+  backend_address_pool {
+  
+    name = "API"
+  }
     
 
 
