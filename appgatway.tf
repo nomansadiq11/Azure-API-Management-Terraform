@@ -62,10 +62,7 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
     public_ip_address_id = "${azurerm_public_ip.pf_ApplicationGateway_Pub_IP.id}"
   }
 
-  frontend_ip_configuration {
-    name                 = "${local.frontend_ip_configuration_name_Web}"
-    public_ip_address_id = "${azurerm_public_ip.pf_ApplicationGateway_Pub_IP.id}"
-  }
+  
 
   
 
