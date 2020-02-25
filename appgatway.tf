@@ -23,7 +23,7 @@ locals {
   frontend_port_name_Web             = "${azurerm_virtual_network.PaymentSecVNet.name}-web-feport"
   frontend_ip_configuration_name_Web = "${azurerm_virtual_network.PaymentSecVNet.name}-web-feip"
   http_setting_name_Web              = "${azurerm_virtual_network.PaymentSecVNet.name}-web-htst"
-  listener_name_Web                  = "${azurerm_virtual_network.PaymentSecVNet.name}-web-httplstn1"
+  listener_name_Web                  = "${azurerm_virtual_network.PaymentSecVNet.name}-web-httplstn"
   request_routing_rule_name_Web      = "${azurerm_virtual_network.PaymentSecVNet.name}-web-rqrt"
 
 
@@ -59,6 +59,11 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
   
   frontend_ip_configuration {
     name                 = "${local.frontend_ip_configuration_name_API}"
+    public_ip_address_id = "${azurerm_public_ip.pf_ApplicationGateway_Pub_IP.id}"
+  }
+
+  frontend_ip_configuration {
+    name                 = "${local.frontend_ip_configuration_name_Web}"
     public_ip_address_id = "${azurerm_public_ip.pf_ApplicationGateway_Pub_IP.id}"
   }
 
