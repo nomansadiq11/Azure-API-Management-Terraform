@@ -23,7 +23,7 @@ locals {
   frontend_port_name_Web             = "${azurerm_virtual_network.PaymentSecVNet.name}-web-feport"
   frontend_ip_configuration_name_Web = "${azurerm_virtual_network.PaymentSecVNet.name}-web-feip"
   http_setting_name_Web              = "${azurerm_virtual_network.PaymentSecVNet.name}-web-htst"
-  listener_name_Web                  = "${azurerm_virtual_network.PaymentSecVNet.name}-web-httplstn"
+  listener_name_Web                  = "${azurerm_virtual_network.PaymentSecVNet.name}-web-httplstn1"
   request_routing_rule_name_Web      = "${azurerm_virtual_network.PaymentSecVNet.name}-web-rqrt"
 
 
