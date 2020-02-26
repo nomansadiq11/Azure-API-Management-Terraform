@@ -105,12 +105,12 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
     protocol                       = "Http"
   }
 
-  http_listener {
-    name                           = "${local.listener_name_Web}"
-    frontend_ip_configuration_name = "${local.frontend_ip_configuration_name_Web}"
-    frontend_port_name             = "${local.frontend_port_name_Web}"
-    protocol                       = "Http"
-  }
+#   http_listener {
+#     name                           = "${local.listener_name_Web}"
+#     frontend_ip_configuration_name = "${local.frontend_ip_configuration_name_Web}"
+#     frontend_port_name             = "${local.frontend_port_name_Web}"
+#     protocol                       = "Http"
+#   }
 
   request_routing_rule {
     name                       = "${local.request_routing_rule_name_API}"
