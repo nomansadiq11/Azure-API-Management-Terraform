@@ -51,10 +51,10 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
     port = 80
   }
 
-  frontend_port {
-    name = "${local.frontend_port_name_Web}"
-    port = 80
-  }
+#   frontend_port {
+#     name = "${local.frontend_port_name_Web}"
+#     port = 80
+#   }
 
   
   frontend_ip_configuration {
@@ -120,13 +120,13 @@ resource "azurerm_application_gateway" "PF_ApplicationGateway" {
     backend_http_settings_name = "${local.http_setting_name_API}"
   }
 
-  request_routing_rule {
-    name                       = "${local.request_routing_rule_name_Web}"
-    rule_type                  = "Basic"
-    http_listener_name         = "${local.listener_name_Web}"
-    backend_address_pool_name  = "${local.backend_address_pool_name_Web}"
-    backend_http_settings_name = "${local.http_setting_name_Web}"
-  }
+#   request_routing_rule {
+#     name                       = "${local.request_routing_rule_name_Web}"
+#     rule_type                  = "Basic"
+#     http_listener_name         = "${local.listener_name_Web}"
+#     backend_address_pool_name  = "${local.backend_address_pool_name_Web}"
+#     backend_http_settings_name = "${local.http_setting_name_Web}"
+#   }
 
 }
 
